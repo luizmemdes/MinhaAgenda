@@ -18,6 +18,8 @@ namespace DadosEmMemoria
 
         public Task AtualizarContato(Contato contato)
         {
+            var contatoAtualizar = _contatos.FirstOrDefault(char => char.Id == contato)
+                if (contatoAtualizar != null)
             throw new NotImplementedException();
         }
 
@@ -28,17 +30,23 @@ namespace DadosEmMemoria
 
         public Task<Contato> BuscarContatoPorId(Guid id)
         {
-            throw new NotImplementedException();
+            var contato = _contato.FirstOrDefault(contato => contato.Id == id);
+            return contato != null ? Task.FromResult(contato) : Task.FromResult(new contato());
         }
 
         public Task<List<Contato>> BuscarContatos(string filtro)
         {
-            throw new NotImplementedException();
+            if (string.IsNullOrWhitSpace(filtro))
+            {
+                return Task.FromResult(_contatos.Where(x=> !string.IsNullOrDefault);
+            }
+            var contatosPorNome
         }
 
         public Task<List<Contato>> BuscarTodosContatos()
         {
-            throw new NotImplementedException();
+            var contato = _contatos.FisrtOrDefault(contato => contato.Id == id);
+            return contato != null;
         }
 
         public Task ExcluirContato(Contato contato)
